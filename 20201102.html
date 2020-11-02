@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人員介紹卡片</title>
+    <style type="text/css">
+    *{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: 'Noto Sans TC', sans-serif;
+    }
+    html,body{
+        height: 100%;
+
+    }
+    body{
+        display: flex;
+        align-items: center;
+        background-color: #003;
+    }
+    .wrap{
+        width: 1200px;
+        display: flex;
+        margin: auto;
+    }
+    .item{
+        width: 368px;
+        margin: 15px;
+        text-align: center;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        transform: translateY(0px);
+        transition: .5s;
+    }
+    .item img{
+        width: 100%;
+        vertical-align: middle;
+
+    }
+    .item h2{
+        border-bottom: 1px solid #888;
+        padding-bottom: .3em;
+        margin-bottom: .4em;
+        font-weight: 900;
+        transition: 0.25s;
+    }
+    .item p{
+        line-height: 1.6;
+        font-weight: 300;
+        transition: .25s;
+    }
+    .item .txt{
+        padding: 20px;
+        position: relative;
+    }
+    .item .txt:before{
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        top: 0;
+        border-top: 50px solid transparent; 
+        border-left: 184px solid #fff;
+        border-right: 184px solid #fff;
+        transform: translateY(-100%);
+
+    }
+    .item:hover{
+        transform: translateY(-50px);
+    }
+    .item:hover .txt{
+        background-image: linear-gradient(0deg,#FB8076,#FEB85D);
+    }
+    .item:hover .txt:before{
+        border-left: 184px solid #FEB85D;
+        border-right: 184px solid #FEB85D;
+    }
+    .txt:hover h2{
+        color: #fff;
+        border-bottom-color: #fff;
+    }
+    .item:hover p{
+        color: #fff;
+    }
+
+
+
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <div class="item">
+        <img src="https://picsum.photos/300/300?random=10">
+        <div class="txt">
+            <h2>Mino Chen</h2>
+            <p>只是快車只需特別好多技術不如咖啡尺寸良好節目遠遠，展開思維所以儀器強烈成功回覆口氣，明確對此金錢，旁邊發言歡迎光臨獨特，好了天然是一種顧客受到股份視頻現有例如昨天別的，顯卡死了戀愛結婚分公司女兒，註冊時間基本上註明典型用於添加腦袋原則安裝，商家監督，那麼。</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="https://picsum.photos/300/300?random=11">
+        <div class="txt">
+            <h2>Chen yo</h2>
+            <p>台北觀察怪物病毒眼淚今日都在祝福這裡，留下場所指標，團結失望小遊戲一下子教學體會水果玩具，對面經營許可證，數學不限補充廣播登記流行動漫醫療場所體會怎麼會，指數高級出生翻譯隊伍特價成熟來到不是很你的日誌，未來為何自身，風險連載日前，通信出現在，是誰某些，臺。</p>
+        </div>
+    </div>
+    <div class="item">
+        <img src="https://picsum.photos/300/300?random=12">
+        <div class="txt">
+            <h2>程式新手</h2>
+            <p>實現機會一邊，斗內處理器，一遍影片認證之外位於，地面這款植物擔心手裡一身設置著名，音樂開了充滿，大全同步降價對我不到特點更是距離感情是以兄弟將其，有限責任公司穩定播放說法當然短信不斷都要，秘密什麼時候最高對於人物空調反對發佈知識一道，各項施工用來騎士，轎。</p>
+        </div>
+    </div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

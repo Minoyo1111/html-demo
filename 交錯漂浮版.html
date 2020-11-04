@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;700;900&display=swap" rel="stylesheet">
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    body{
+      padding: 100px 0px;
+      background: linear-gradient(20deg, #3d5493,#1aa2a0) fixed center center / 100% 100%;
+    }           
+    .wrap{
+      width: 1200px;
+      margin: auto;
+    }
+    .item{
+      display: flex;
+      align-items: center;
+      margin-bottom: 70px;
+      font-family: 'Noto Sans TC', sans-serif; 
+    }
+    .item .pic{
+      width: 55%;
+      flex-shrink: 0;
+
+    }
+    .item .pic img{
+      width: 100%;
+      vertical-align: middle;
+    }
+    .item .txt{
+      width: 55%;
+      /* 他就不會自動收縮了 */
+      flex-shrink: 0;
+      padding: 50px 30px;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 1;
+    }
+    .item > :first-child{
+      margin-right: -10%;
+    }
+    .item:nth-child(1) .txt{
+      background-color: #f0aec1;}
+    .item:nth-child(2) .txt{
+      background-color: #2efdd0;}
+    .item:nth-child(3) .txt{
+      background-color: #fec979;}
+    .item:nth-child(4) .txt{
+      background-color: #f0aec1;}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="item">
+      <div class="pic">
+      <img src="https://picsum.photos/600/350/?random=4">
+      </div>
+      <div class="txt">
+        <h2>Lorem ipsum, dolor sit amet consectetur adipisicing.</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio odit explicabo maxime veritatis blanditiis at tempore corporis nihil, voluptatibus error.</p>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="item">
+      <div class="txt">
+        <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus enim odit totam excepturi esse consectetur facere doloribus laudantium animi nisi.</p>
+      </div>
+      <div class="pic">
+        <img src="https://picsum.photos/600/350/?random=1">
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="item">
+      <div class="pic">
+        <img src="https://picsum.photos/600/350/?random=2">
+      </div>
+      <div class="txt">
+        <h2>Lorem ipsum dolor sit amet consectetur adipisicing</h2>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Inventore aliquam fugit facere dicta illo molestias cum eaque laborum rem doloremque.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="item">
+    <div class="txt">
+      <h2>Lorem ipsum dolor sit amet consectetur adipisicing.</h2>
+      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto sed obcaecati iure id ipsa similique aut? Pariatur sequi inventore sit?</p>
+    </div>
+    <div class="pic">
+      <img src="https://picsum.photos/600/350/?random=3">
+    </div>
+  </div>
+  </div>
+</body>
+</html>

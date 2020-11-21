@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="grid.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;1,200&display=swap" rel="stylesheet">
+    <style>
+        .header{
+            height: 80px;
+            background-color: #14345E;
+            position: relative;
+        }
+        #menu_control{
+            position: absolute;
+            opacity: 0;
+        }
+        .header .logo{
+            margin-left: 50px;
+            /* border: 1px solid red; */
+            
+        }
+        .header .logo a{
+            text-decoration: none;
+            color: #fff;
+            font-size: 20px;
+        }
+        .header .phone{
+            opacity: 0;
+        }
+        .header .phone_icon{
+            padding: 10px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        .phone_icon a{
+            display: block;
+            width: 20px;
+            height: 20px;
+            padding: 5px;
+            border-radius: 50%;
+            background-color: #fff;
+        }
+        .header .phone_icon img{
+            width: 100%;
+            vertical-align: middle;
+        }
+
+
+        .menu_btn{
+            /* border: 1px solid red; */
+            width: 40px;
+            height: 40px;
+            background-color: #14345E;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .menu_btn span{
+            opacity: 0;
+        }
+        
+
+        .menu_btn::before{
+            content: "";
+            position: absolute;
+            height: 2px;
+            left: 2px;
+            width: 36px;
+            background-color: #fff;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            box-shadow: 0px 8px 0px #fff,
+                        0px -8px 0px #fff;
+        }
+        .header nav{
+            width: 80%;
+            height: calc(100vh - 50px);
+            background-color: #fcc;
+            position: absolute;
+            top: 50px;
+            left: -100%;
+            transition: .5s;
+        }
+        .header .link a{
+            display: block;
+            text-decoration: none;
+            color: #000;
+            padding: 10px 20px;
+            border-bottom: 1px solid #f70;
+        }
+        #menu_control:checked ~ .header nav{
+            left: 0;
+        }
+
+        .home_page{
+            width: 100%;
+            padding: 0px 0 40px;
+            background-color:  #14345E;
+            text-align: center;
+            background-image: url("page01_img01.png");
+            background-size: cover;
+            background-position: center;
+            line-height: 2em;
+        }
+        .home_page .txt{
+            width: 100%;
+            margin: auto;
+        }
+        .home_page .txt h1, p{
+            margin-bottom: 10px;
+        }
+
+        .home_page .txt h1{
+            font-size: 30px;
+            color: #fff;
+        }
+
+        .home_page .txt p{
+            font-size: 15px;
+            color: steelblue;
+        }
+        .home_page button{
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: bolder;
+            padding: 15px 30px;
+            background-color: #fa0;
+            border: solid 1px #fa0;
+            margin: 5px 0;
+        }
+
+
+
+        .study_page,
+        .center_page{
+            width: 100%;
+            padding: 20px 0px;
+            /* border: 1px red solid; */
+            background-color: #EDF3F9;
+        }
+
+        .study_page .pic,
+        .center_page .pic{
+            /* border: solid 1px blue; */
+            padding: 30px 0px;
+        }
+
+        .study_page .txt,
+        .center_page .txt{
+            width: 100%;
+            text-align: center;
+            padding: 30px 0px;
+        }
+
+        .study_page h2, h3, p{
+            margin-bottom: 20px;
+            line-height: 1.5em;
+        }
+
+        .study_page h2,
+        .center_page h2{
+            font-size: 28px;
+            font-weight: bolder;
+        }
+        .study_page h3,
+        .center_page h3{
+            font-size: 20px;
+            color: #666;
+        }
+
+        .study_page p,
+        .center_page p,
+        .reasons_page p{
+            color: #666;
+            font-size: 15px;
+        }
+
+        .study_page button{
+            background-color: #Fa0;
+            border: 1px solid #fa0;
+            border-radius: 50px;
+            color: aliceblue;
+            font-size: 10px;
+            font-weight: bolder;
+            padding: 10px 30px;
+        }
+
+        
+
+        .study_page img,
+        .center_page img,
+        .reasons_page img{
+            width: 100%;
+            vertical-align: middle;
+        }
+
+
+        .center_page h2, h3, p{
+            margin-bottom: 20px;
+            line-height: 1.5em;
+        }
+
+        .reasons_page{
+            width: 100%;
+            padding: 20px 0px;
+        }
+        .reasons_page .title h2{
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .reasons_page .item{
+            /* border: 1px solid blue; */
+            padding: 20px;
+            text-align: center;
+        }
+
+        .reasons_page .pic{
+            /* border: 1px solid red; */
+            width: 100px;
+            height: 100px;
+            margin: auto;
+        }
+        .reasons_page .txt,
+        .share_page .txt{
+            padding: 0 20px;
+        }
+        .reasons_page .txt h3,p{
+            margin: 5px 0px;
+
+        }
+        .contact_page{
+            width: 100%;
+            background-color: #14345E;
+            text-align: center;
+            padding: 20px 0px;
+            line-height: 2em;
+        }
+
+        .contact_page h3{
+            color: aliceblue;
+            font-size: 30px;
+            font-weight: bolder;
+        }
+        .contact_page p{
+            font-size: 18spx;
+            color: #2383DE;
+        }
+
+        .contact_page input, button{
+            border-radius: 50px;
+            font-size: 10px;
+            font-weight: bolder;
+            padding: 15px 30px;
+            margin: 20px 0px;
+        }
+
+        .contact_page input{
+            width: 300px;
+            color: #aaa;
+        }
+
+        .contact_page button{
+            background-color: #Fa0;
+            border: 1px solid #fa0;
+            color: aliceblue;
+        }
+
+        .share_page{
+            width: 100%;
+            text-align: center;
+            padding: 20px 0px;
+            background-color: #f70;
+            line-height: 2em;
+        }
+        .share_page .pic{
+            width: 40px;
+            margin: 20px auto;
+        }
+        .share_page .pic img{
+            width: 100%;
+            vertical-align: middle;
+           
+        }
+        .share_page .txt h3, p{
+            margin-bottom: 20px;
+            color: #eee
+        }
+        .share_page h3{
+            font-size: 26px;
+        }
+        .share_page span{
+            display: block;
+            font-weight: bolder;
+            letter-spacing: 2px;
+            margin: 0px 10px;
+        }
+
+        .share_page .dot a{
+            display: inline-block;
+            width: 20px;
+        }
+
+        .share_page .dot img{
+            width: 100%;
+        }
+
+        .footer{
+            background-color: #555;
+            width: 100%;
+            padding: 20px 0px;
+            text-align: center;
+        }
+
+        .footer .label a{
+            font-size: 30px;
+            font-weight: bolder;
+        }
+
+        .footer .copyright::before{
+            content: "";
+            text-align: center;
+            width: 100%;
+            border-top: 1px solid #666;
+            position: absolute;
+            top: -10px;
+            left: 0;
+        }
+        .footer .copyright{
+            position: relative;
+            margin: 10px;
+        }
+
+        .footer .copyright p{
+            color: #000;
+        }
+
+        .footer .copyright span{
+            color: #fff;
+        }
+    
+        .footer .link{
+            display: flex;
+            flex-direction: column;
+        }
+        .footer .link a{
+            display: inline-block;
+            margin: 10px;
+        }
+        .footer .link a:hover{
+            color: peru;
+        }
+
+        .footer .label, .link, .icon{
+            margin: 10px 0;
+        }
+        .footer a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .footer .icon a{
+            /* border: 1px solid red; */
+            display: inline-block;
+            width: 30px;
+            margin: 0 5px;
+        }
+        .footer .icon img{
+            width: 100%;
+        }
+       
+      
+
+        @media screen and (min-width: 768px){
+            .header{
+                height: 100px;
+            }
+            .header .logo{
+                padding-top: 10px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+            .header .phone{
+                opacity: 1;
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .header .phone a{
+                color: #fff;
+                text-decoration: none;
+                margin: 20px 30px;
+                display: block;
+                font-size: 20px;
+            }
+            .header .link{
+               display: flex;
+               justify-content: center;
+            }
+            .header .link nav{
+                position: relative;
+                left: 0;
+                display: flex;
+                width: auto;
+                height: auto;
+                top: 0;
+                background-color: transparent;
+            }
+            .header .link a{
+                color: #fff;
+                border-bottom: transparent;
+            }
+
+            .header .logo a{
+                font-size: 30px;
+            }
+            .menu_btn{
+                opacity: 0;
+            }
+            .phone_icon{
+                opacity: 0;
+            }
+
+            .home_page{
+                height: 400px;
+            }
+            .home_page .txt{
+                padding-top: 40px;
+            }
+
+            .home_page .txt h1{
+                font-size: 50px;
+            }
+            .home_page .txt p{
+                font-size: 20px;
+            }
+            .study_page h2, h3, p{
+                line-height: 2em;
+            }
+            
+            .study_page h2,
+            .center_page h2{
+                font-size: 40px;
+            }   
+
+            .study_page .pic{
+                position: relative;
+            }
+            .study_page img{
+                position: absolute;
+                width: 80%;
+                top: 15px;
+                left: -10px; 
+            }
+            .center_page h3, p{
+                line-height: 2em;
+            }
+            .center_page .txt{
+                padding-top: 100px;
+            }
+            .reasons_page .item{
+                display: flex;
+            }
+            .reasons_page .pic{
+            /* border: 1px solid red; */
+            width: 300px;
+            margin: auto;
+            }
+            .reasons_page{
+            width: 100%;
+            padding: 20px 0px;
+            }
+            .reasons_page .title h2,
+            .contact_page h3{
+            font-size: 50px;
+            }
+            .contact_page p{
+                font-size: 25px;
+            }
+            .contact_page input{
+                width: 400px;
+                display: inline-block;
+            }
+            .contact_page .in_input{
+                padding-left: 100px;
+            }
+            .contact_page .in_button{
+                /* border: 1px solid red; */
+                padding-right: 315px;
+            }
+            .share_page h3{
+                font-size: 50px;
+            }
+
+            .share_page p{
+                margin: auto;
+                width: 600px;
+            }
+
+            .share_page .dot{
+                margin-top: 10px;
+            }
+            .footer .link{
+                flex-direction: row;
+                justify-content: center;
+            }
+
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="menu_control">
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="burger">
+                        <label for="menu_control" class="menu_btn">
+                            <span>選單</span>
+                        </label>
+                        <div class="link">
+                            <nav>
+                                <a href="#">HOME</a>
+                                <a href="#">About us</a>
+                                <a href="#">Course</a>
+                                <a href="#">Gallery</a>
+                                <a href="#">Contact us</a>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="logo">
+                        <a href="#">Langerba</a>
+                    </div>
+                    <div class="phone">
+                        <a href="#">+1 800 598 78 87</a>
+                    </div>
+                    <div class="phone_icon">
+                        <a href="#"><img src="telephone.png" alt="電話圖"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="home_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="txt">
+                        <h1>Open the world of opportunities!</h1>
+                        <p>Learn to communicate with the world around you.</p>
+                        <button>REGISTER NOW</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="study_page">
+        <div class="container">
+            <div class="row g-1 g-md-3">
+                
+                <div class="col-12 col-md-6">
+                    <div class="txt">
+                        <h2>Studying Foreign Languages</h2>
+                        <h3>Every foreign language has its own momentum.</h3>
+                        <p>The more you learn, the more you want to learn. Say you love Italian food and decide to study Italian. At first it's hard. But one day you meet some Italian tourists on the bus and you understand enough to point them towards their hotel. Before you part ways, they give you their e-mail address. Now you can easily communicate with them and study some more.</p>
+                        <button>REGISTER NOW</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="pic">
+                        <img src="page01_img02.png" alt="男子在學語言">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="reasons_page">
+        <div class="container">
+            
+            <div class="row g-1">
+                <div class="col-12">
+                    <div class="title">
+                        <h2>6 reasons to start learn language</h2>
+                    </div>
+                </div>
+               <div class="col-12 col-md-6">
+
+                    <div class="item">
+                        <div class="pic">
+                            <img src="world-grid.png" alt="地球圖">
+                        </div>
+                        <div class="txt">
+                            <h3>English is spoken all over the world</h3>
+                            <p>English is not the most widely spoken language (that title goes to Chinese), but it does come in third, after   Spanish.And the number of 335 million native speakers is respectable.</p>
+                        </div>
+                    </div>
+               </div>
+
+
+               <div class="col-12 col-md-6">
+
+                    <div class="item">
+                        <div class="pic">
+                            <img src="portfolio.png" alt="公事包">
+                        </div>
+                        <div class="txt">
+                            <h3>International business requires English</h3>
+                              <p>In terms of international commerce, English is the language to learn. When the Chinese do business in Egypt, the negotiations and transactions happen in English.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-md-6">
+
+                    <div class="item">
+                        <div class="pic">
+                            <img src="mortarboard.png" alt="學位帽">
+                        </div>
+                        <div class="txt">
+                            <h3>Education and research opportunities</h3>
+                              <p>Thinking of studying abroad or publishing a research paper? Chances are you will decide to learn English at some point along the way, or to study at your chosen institution.</p>
+                            </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-md-6">
+
+                    <div class="item">
+                        <div class="pic">
+                            <img src="earth-globe.png" alt="地球儀">
+                        </div>
+                        <div class="txt">
+                            <h3>	
+                                A perfect language for traveling</h3>
+                              <p>If you travel often, you’ll note signs tend to come in the local tongue first and English second. That’s because English is considered the most popular international language.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6">
+
+                    <div class="item">
+                        <div class="pic">
+                            <img src="picture-image.png" alt="圖片">
+                        </div>
+                        <div class="txt">
+                            <h3>The language of cinema and music</h3>
+                          <p>If you like going to the movies and are a fan of sitcoms, then English should be on your list. That’s because so many of the world’s films are written and produced in English.</p>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-md-6">
+
+                    <div class="item">
+                        <div class="pic">
+                            <img src="book.png" alt="書">
+                        </div>
+                        <div class="txt">
+                            <h3>	
+                                Hemingway and Harry Potter</h3>
+                              <p>English has been around for a long time and English speaking writers have always been a fairly prolific bunch, both in Great Britain and the United States.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="center_page">
+        <div class="container">
+            <div class="row g-1">
+                <div class="col-12 col-md-6">
+                    <div class="pic">
+                        <img src="page01_img03.png" alt="語言學習功能">
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="txt">
+                        <h2>Our Book Center is an official distributor of Oxford University Press</h2>
+                        <h3>We offer a wide range of books for teachers and students.</h3>
+                        <p>The Book Center provides schools, language centers, colleges and universities with English teaching materials from Seattle to Miami. Our dealers work in almost all states.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="contact_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="txt">
+                        <h3>Get your free e-mail course!</h3>
+                        <p>30 lessons per week, Upper-Intermediate to Advanced levels, course length: 4, 8-12 weeks</p>
+                        <div class="row">
+                        <div class="col-12 col-md-7 in_input">
+                            <input type="text"  value="Enter your e-mail">
+                        </div>
+
+                        <div class="col-12 col-md-5 in_button">
+                            <button>I WANT A COURSE</button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="share_page">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="txt">
+                        <h3>What our students are saying</h3>
+                        <div class="pic">
+                            <img src="page01_img04.png" alt="分隔號">
+                        </div>
+                        <p>
+                            民族努力醫學一番調節信箱，大量方面，主要理論交換有些你要實際對此坐在回到招聘好處手機鈴聲成員，計劃有可能一年條例網域名稱經濟發展，情形學校我要，設為基礎，指出申請人間走到不錯阿摩斯發生外面光碟去了，而在大概有所男孩明顯中有員工儘量認真他們的，女士校長，上。 
+                            <span>Mino yo</span>
+                        </p>
+                        <div class="dot">
+                            <a href="#"><img src="circle (1).png" alt="dot"></a>
+                            <a href="#"><img src="circle.png" alt="dot"></a>
+                            <a href="#"><img src="circle.png" alt="dot"></a>
+                            <a href="#"><img src="circle.png" alt="dot"></a>
+                            <a href="#"><img src="circle.png" alt="dot"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer_bar">
+                        <div class="row">
+                            <div class="col-12 col-md-3">
+                                <div class="label"><a href="#">Langerba</a></div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="link">
+                                    <a href="#">HOME</a>
+                                    <a href="#">About us</a>
+                                    <a href="#">Course</a>
+                                    <a href="#">Gallery</a>
+                                    <a href="#">Contact us</a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-3">
+                                <div class="icon">
+                                    <span class="icon">
+                                        <a href="#"><img src="facebook-logo.png" alt="社群網站"></a>
+                                        <a href="#"><img src="twitter-logo.png" alt="社群網站"></a>
+                                        <a href="#"><img src="google-plus.png" alt="社群網站"></a>
+                                        <a href="#"><img src="instagram-logo.png" alt="社群網站"></a>
+                                        <a href="#"><img src="linked-in-logo-of-two-letters.png" alt="社群網站"></a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="copyright">
+                        <p>2016. All Langerba financings are subject to eligibility, credit and underwriting approval. The programs advertised on this page are not a commitment or guarantee from Langerba to provide funds. Programs, rates and other terms & conditions on this page are subject to change without notice. <span>Privacy Policy</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
